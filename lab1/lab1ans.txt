@@ -1,0 +1,11 @@
+3.
+g flag -> default debug information
+o flag -> change output file name
+
+4.
+[1]    7762 floating point exception  ./lab1
+
+8.
+line 14 ->     int e = a / d;
+
+10.
