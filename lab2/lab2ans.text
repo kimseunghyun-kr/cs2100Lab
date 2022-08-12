@@ -1,0 +1,15 @@
+3.
+original : 4
+change : display(ageArray[2]); -> display(ageArray[0]); or   int ageArray[] = { 2, 15, 2, 4 };
+
+4.
+sizeof : finds the size of the different data types , in bytes
+sizeof value 1 : char
+
+5.
+printf("dize of the array is %d", sizeof(ageArray) / sizeof(int));
+sizeof(ageArray) / sizeof(int);
+
+6.
+stored value : *arr  | arr[0];
+address: arr | &arr[0];
