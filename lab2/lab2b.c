@@ -48,7 +48,12 @@ int hexVal(char hex) {
 }
 
 int hexToDecimal(char hex[], size_t size) {
-	// complete the function body
+    int ans = 0;
+	for(int i = size-1; i >= 0  ; i--) {
+        // printf("%c", *(hex + (sizeof(char) * i)));
+        ans += hexVal(*(hex + (sizeof(char) * i))) * pow(16, (size - 1) - i);
+    }
+        // complete the function body
 	
-	return 0;
+	return ans;
 }
