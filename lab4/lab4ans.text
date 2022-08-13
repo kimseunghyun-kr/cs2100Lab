@@ -1,0 +1,173 @@
+  .data 
+str: .asciiz "the answer = "
+
+  .text
+
+main: 
+
+
+
+    li   $v0, 4    # system call code for print_string
+    la   $a0, str  # address of string to print
+    syscall        # print the string
+
+    li   $v0, 8    # system call code for read_string
+    la   $a0, $v0  # address of string to print
+    li   $v0, 4    # system call code for print_string
+    syscall        # print the string
+
+
+# task1.asm
+
+
+
+  .data 
+arrayA: .word 1, 0, 2, 0, 3
+count:  .word 999
+
+  .text
+main:
+    # code to setup the variable mappings
+    add $zero, $zero, $zero  #dummy instructions, can be removed
+    add $zero, $zero, $zero  #dummy instructions, can be removed
+    add $zero, $zero, $zero  #dummy instructions, can be removed
+
+    # code for reading in the user value X
+
+    # code for counting multiples of X in arrayA
+
+    # code for printing result
+
+    # code for terminating program
+# arrayCount.asm
+
+
+arrayA is at 0x00000000
+count is at  0x00000014
+
+arrayA: .word 1, 0, 2, 0, 3 , 0 , 4 , 0;
+
+To map arrayA:   la $t0 arrayA;
+to map count:    la $t8 count;
+                 lw $t8 0($t8);
+
+
+
+If X is 32,  andi $t4, $t3, 0x0000001F
+If X is 8,   andi $t4, $t3, 0x00000007
+addi $t5, $t8 0xFFFFFFFF;
+
+/* mappings
+0 -> base address
+1 -> number at address
+3 -> currIndex;
+4 -> max_size == 8
+5 -> result of number % mask
+6 -> mask
+7 -> user number
+8 -> count (provided)
+9 -> number to return
+*/
+
+
+/* code     
+
+  .data 
+arrayA: .word 1, 0, 2, 0, 3
+count:  .word 999
+
+  .text
+main:
+    # code to setup the variable mappings
+    add $t9 $zero $zero #number to return
+    addi $t4 $zero 8; //max size
+    add  $t3 $zero $zero; //index counter
+
+    # code for calling the array and the count
+To map arrayA:   
+    la $t0 arrayA;
+to map count:    
+    la $t8 count;
+    lw $t8 0($t8);
+
+    # code for counting multiples of X in arrayA
+start: 
+    beq $t3 $t4 exit
+    lw $t1 0($t0);
+    addi $t6, $t7 0xFFFFFFFF;
+    and $t5 $t1 $t6
+    beq $t6 $zero noplus
+    addi $t9 $t9 1;
+noplus:
+    addi $t3 $t3 1;
+    addi $t0 $t0 4;
+    
+    j start
+
+    # code for printing result
+
+exit:  
+    li $v0 1;
+    lw $a1 $t9;
+    syscall;
+
+    # code for terminating program
+    exit
+
+# arrayCount.asm
+
+*/
+
+
+
+
+//task 3
+
+    addi $t4 $zero 8; //max size
+    add  $t3 $zero $zero; //idx
+    li   $v0, 4    # system call code for read_int
+    la   $t7, $v0  # address of int brought to t7;
+    
+//array store
+    start: beq $t3 $t4 exit
+    li $v0 5;
+    addi $t0 $v0 0;
+    sw $t0 0($t7);
+    addi $t3 $t3 1;
+    addi $t7 $t7 4;
+    j start;
+
+    exit: 
+
+//get x;
+    li $v0 5
+    addi $t7 $v0 0;
+
+//variable mapping
+    add $t9 $zero $zero //number to return
+    addi $t4 $zero 8; //max size
+    add  $t3 $zero $zero; //index counter
+
+//process
+start: 
+    beq $t3 $t4 exit
+    lw $t1 0($t0);
+    addi $t6, $t7 0xFFFFFFFF;
+    and $t5 $t1 $t6
+    beq $t6 $zero noplus
+    addi $t9 $t9 1;
+noplus:
+    addi $t3 $t3 1;
+    addi $t0 $t0 4;
+    
+    j start
+
+
+//print result
+    exit:  li $v0 1;
+           lw $a1 $t9;
+           syscall;
+
+//terminate
+    exit
+
