@@ -7,9 +7,18 @@ sizeof : finds the size of the different data types , in bytes
 sizeof value 1 : char
 
 5.
-printf("dize of the array is %d", sizeof(ageArray) / sizeof(int));
+printf("size of the array is %d", sizeof(ageArray) / sizeof(int));
 sizeof(ageArray) / sizeof(int);
 
 6.
 stored value : *arr  | arr[0];
 address: arr | &arr[0];
+
+8. we pass in the size of the array inside the function because 
+   the array does not know its size.
+   Without the size given, may go over the length of the array
+   to dummy data area
+
+   possible, since the char hex[] already prestructured to have \0 as the last char present
+
+   9. %zu -unsigned typesor %d -> won't show error;
