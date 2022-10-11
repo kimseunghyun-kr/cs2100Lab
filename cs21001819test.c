@@ -8,7 +8,7 @@ typedef struct {
 void multiply(rational x, rational* y){
     int x_num = *(x.numer), y_num = *(y->numer),
     x_den = *(x.denom), y_den = *(y->denom);
-h
+    
     *(x.numer) = x_num*y_num;
     *(y-> numer) = x_num*y_num;
     *(x.denom) = x_den*y_den;
