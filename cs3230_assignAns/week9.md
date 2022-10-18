@@ -90,7 +90,7 @@ runtime (V^2E * log min(vanilla, choco) capacity) -> O(V^2E * logPX)
 P pipes X -> flow * min -> max flow/min -> cap = PX -> caps the min(vanilla, choco) gen/min
 
 
-```or 
+```or (thanks to Lin Zechen)
 
 This problem can be expressed as a max flow problem with 2 sources (2 tanks) and 1 sink (mixing machine), with the edges being the pipes and capacity being the capacity of the pipes. Since Dinic's algorithm works by labelling nodes by layers, this will work in our problem here.
 
