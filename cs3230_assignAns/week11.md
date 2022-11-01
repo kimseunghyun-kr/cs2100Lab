@@ -35,11 +35,32 @@ for O(n/2):
         O(1)
 
 time taken by algo approx bounded by O(N^2) , is polynomial
-Integers that are inside array = 32 / 64 bits
-by representation of the numbers, in terms of bits
-X = 32n or 64n
+Integers that are inside array = k bits, where k approx max(log(A[j]))
+Sum == n*2^k
 
-algo is still bounded by O(X^2), which is polynomial. NOT a pseudo polynomial algorithm
+-> loop = n2^k * n = n^2 * 2^k
+
+algo is still bounded by O(2^k), which is polynomial. IS a pseudo polynomial algorithm
+
+
+
+B can be converted into A where the edge weight of nonpresent = 0, present = 1;
+
+total weight of all the edges  =  number of vertices
+
+traversal of all edges = n(n-1)/2 where n = vertices
+only need labelling
+
+
+let the set of all graphs as X
+
+for x in X, label each points as x1 ... xn
+set l = k edges to cross
+for each pair if the two
+
+
+
+
 
 
 
