@@ -56,7 +56,15 @@ let the set of all graphs as X
 
 for x in X, label each points as x1 ... xn
 set l = k edges to cross
-for each pair if the two
+for all connected pairs xi .. xj, 
+
+set condition xi + xj > 0 and xi + xj <2
+
+same as labelling entire graph as either 0 or 1
+
+will satisfy both conditions iff they are labelled diff
+if same, will fail the <2 condition if both 1 and fail > 0 if both 0
+
 
 
 
